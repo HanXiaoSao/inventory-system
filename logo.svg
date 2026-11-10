@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- 定义渐变颜色 -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F3F4F6" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- 圆角背景板 -->
+  <rect width="1024" height="1024" rx="220" fill="url(#bgGradient)" />
+
+  <!-- 后面的单据（微透明） -->
+  <rect x="280" y="300" width="440" height="520" rx="40" fill="#E5E7EB" transform="rotate(-10 500 560)" opacity="0.6"/>
+  
+  <!-- 前面的主单据 -->
+  <rect x="300" y="260" width="460" height="540" rx="50" fill="url(#cardGradient)" filter="url(#shadow)" transform="rotate(5 530 530)"/>
+  
+  <!-- 单据上的数据线条 -->
+  <rect x="380" y="380" width="280" height="24" rx="12" fill="#E5E7EB" transform="rotate(5 530 530)"/>
+  <rect x="380" y="450" width="200" height="24" rx="12" fill="#E5E7EB" transform="rotate(5 530 530)"/>
+  <rect x="380" y="520" width="240" height="24" rx="12" fill="#E5E7EB" transform="rotate(5 530 530)"/>
+  
+  <!-- 底部的进度条/库存条 -->
+  <rect x="380" y="620" width="140" height="30" rx="15" fill="#3B82F6" transform="rotate(5 530 530)"/>
+  <rect x="540" y="620" width="120" height="30" rx="15" fill="#E5E7EB" transform="rotate(5 530 530)"/>
+
+  <!-- 右上角的校验对勾（象征开票/完成） -->
+  <circle cx="750" cy="300" r="100" fill="#10B981" stroke="#FFFFFF" stroke-width="16" filter="url(#shadow)"/>
+  <path d="M 700 300 L 735 335 L 805 265" fill="none" stroke="#FFFFFF" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

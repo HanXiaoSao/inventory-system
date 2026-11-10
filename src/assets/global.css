@@ -1,0 +1,122 @@
+/* 基础全局变量覆盖 */
+:root {
+    --el-color-primary: #409eff;
+    --el-border-radius-base: 8px;
+}
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ================= 浅色模式 ================= */
+html:not(.dark) body {
+    background-color: #f2f5f9 !important;
+    color: #303133;
+}
+
+html:not(.dark) .el-card,
+html:not(.dark) .page-container,
+html:not(.dark) .ledger-list-container,
+html:not(.dark) .settings-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #ebeef5;
+}
+
+/* ================= 暗黑模式 ================= */
+html.dark body {
+    background-color: #121212 !important;
+    color: #e5eaf3;
+}
+
+/* 页面主容器和卡片背景 */
+html.dark .el-card,
+html.dark .page-container,
+html.dark .ledger-list-container,
+html.dark .settings-container {
+    background-color: #1d1e1f !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333333 !important;
+}
+
+/* 修复：台账/库存目录的灰色背景 */
+html.dark .ledger-list-container,
+html.dark .settings-container {
+    background-color: #121212 !important;
+}
+
+/* 🔥 新增补丁：干掉台账目录和库存分类顶部的白色栏目 */
+html.dark .header-toolbar {
+    background-color: #1d1e1f !important;
+    border: 1px solid #333 !important;
+}
+
+html.dark .header-toolbar h2 {
+    color: #e5eaf3 !important;
+}
+
+/* 🔥 新增补丁：修复卡片上的文字颜色（让黑色标题变白，让灰色副标题变亮） */
+html.dark .card-year {
+    color: #e5eaf3 !important;
+}
+
+html.dark .card-count {
+    background-color: #2b2b2b !important;
+    color: #a3a6ad !important;
+}
+
+/* 修复：开票大厅收货人表单和底部添加行的灰色背景 */
+html.dark .customer-form,
+html.dark .bottom-actions {
+    background-color: #262727 !important;
+    border: 1px solid #363637 !important;
+}
+
+/* 修复：表格内部的底色 */
+html.dark .el-table {
+    --el-table-tr-bg-color: #1d1e1f;
+    --el-table-header-bg-color: #262727;
+    --el-table-row-hover-bg-color: #2b2b2b;
+    background-color: #1d1e1f !important;
+}
+
+/* 表格样式优化 */
+.el-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+    font-weight: bold;
+}
+
+/* 表格当前行高亮（适配深色模式） */
+html:not(.dark) :deep(.el-table__body tr.current-row > td.el-table__cell) {
+    background-color: #fdf4b5 !important;
+}
+
+html.dark :deep(.el-table__body tr.current-row > td.el-table__cell) {
+    background-color: #4b4b23 !important;
+}
+
+/* 侧边栏过渡 */
+.el-aside {
+    transition: background-color 0.3s, width 0.3s;
+}
+
+/* 🔥 修复暗黑模式下，数据备份页面的标题发灰问题 */
+html.dark .action-item h3 {
+    color: #e5eaf3 !important;
+}
+
+/* 但保留“导入数据”那个红色的警告标题，不要被覆盖 */
+html.dark .action-item h3[style*="#f56c6c"] {
+    color: #f56c6c !important;
+}
+
+/* 顺便修复一下暗色模式下说明文字的颜色 */
+html.dark .action-item p {
+    color: #a3a6ad !important;
+}
